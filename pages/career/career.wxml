@@ -1,0 +1,31 @@
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="custom-nav">
+    <view class="back-icon" bindtap="onBack">
+      <view class="back-arrow"></view>
+      <text class="back-text">返回</text>
+    </view>
+    <view class="nav-title">事业测评</view>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="content">
+    <view class="section-title">事业测评项目</view>
+    
+    <!-- 评测按钮区域 -->
+    <view class="btn-group">
+      <!-- 收入评测按钮 -->
+      <view class="evaluation-btn" bindtap="navigateToIncome">
+        <view class="btn-svg">
+          <view class="income-icon">¥</view>
+        </view>
+        <text class="btn-text">收入评估</text>
+      </view>
+      
+      <!-- 这里可以添加更多评测按钮 -->
+    </view>
+    
+    <!-- Placeholder for future career assessment items -->
+    <view class="placeholder-text">更多事业评估项目即将推出...</view>
+  </view>
+</view> 

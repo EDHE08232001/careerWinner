@@ -1,3 +1,4 @@
+/* pages/income/income.wxss */
 .container {
   padding: 16px;
   padding-top: 0;
@@ -73,47 +74,8 @@
   text-align: center;
 }
 
-.btn-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 16px;
-  margin-bottom: 32px;
-  width: 100%;
-}
-
-.evaluation-btn {
-  text-align: center;
-  background-color: #fff;
-  padding: 20px 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.evaluation-btn:active {
-  background-color: #f0f0f0;
-  transform: scale(0.98);
-}
-
-.btn-svg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.btn-svg image {
-  width: 40px;
-  height: 40px;
-}
-
-.btn-text {
-  font-size: 16px;
-  color: #555;
-}
-
-/* 身高评测输入区域样式 */
-.height-evaluation-section, .income-evaluation-section {
+/* 收入评测输入区域样式 */
+.income-evaluation-section {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -142,7 +104,7 @@
   margin-bottom: 10px;
 }
 
-.height-input, .income-input {
+.income-input {
   height: 45px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -164,6 +126,13 @@
 
 .evaluate-btn:active {
   opacity: 0.8;
+}
+
+.info-text {
+  font-size: 12px;
+  color: #999;
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* 结果区域样式 */
@@ -207,17 +176,43 @@
   margin: 10px 0;
 }
 
-.result-detail {
-  font-size: 14px;
-  color: #777;
-  margin-top: 5px;
-}
-
 .result-note {
   font-size: 12px;
   color: #999;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+/* 收入表格样式 */
+.income-table {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f5f5f5;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.table-row {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.table-row.highlight-row {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.table-cell {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
 }
 
 .back-btn {

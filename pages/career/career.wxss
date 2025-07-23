@@ -1,3 +1,4 @@
+/* pages/career/career.wxss */
 .container {
   padding: 16px;
   padding-top: 0;
@@ -73,6 +74,7 @@
   text-align: center;
 }
 
+/* 按钮组样式 */
 .btn-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -102,9 +104,17 @@
   margin-bottom: 8px;
 }
 
-.btn-svg image {
+.income-icon {
   width: 40px;
   height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffd700;
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .btn-text {
@@ -112,125 +122,9 @@
   color: #555;
 }
 
-/* 身高评测输入区域样式 */
-.height-evaluation-section, .income-evaluation-section {
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.input-section {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.input-title-center {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
+.placeholder-text {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-.input-label {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.height-input, .income-input {
-  height: 45px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0 15px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.evaluate-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 0;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;
-}
-
-.evaluate-btn:active {
-  opacity: 0.8;
-}
-
-/* 结果区域样式 */
-.result-section {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.result-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.result-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.result-content {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.result-text {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.result-value {
-  font-size: 36px;
-  font-weight: bold;
-  color: #4CAF50;
-  margin: 10px 0;
-}
-
-.result-detail {
-  font-size: 14px;
-  color: #777;
-  margin-top: 5px;
-}
-
-.result-note {
-  font-size: 12px;
   color: #999;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.back-btn {
-  background-color: #f0f0f0;
-  color: #555;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 0;
-  font-size: 16px;
-  margin-top: 15px;
-  width: 100%;
-}
-
-.back-btn:active {
-  background-color: #e0e0e0;
+  margin-top: 20px;
+  font-size: 14px;
 } 
