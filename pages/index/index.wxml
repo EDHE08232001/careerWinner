@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- Enhanced logo section -->
+  <view class="logo-container">
+    <image class="logo" src="/images/icons/logo.svg" mode="aspectFit"></image>
+  </view>
+
+  <!-- Function button area -->
+  <view class="btn-group">
+    <navigator url="/pages/body/body" class="btn" hover-class="btn-hover">
+      <view class="btn-svg">
+        <image src="/images/icons/health.svg" mode="aspectFit"></image>
+      </view>
+      <text class="btn-text">身体测评</text>
+    </navigator>
+    <navigator url="/pages/career/career" class="btn" hover-class="btn-hover">
+      <view class="btn-svg">
+        <image src="/images/icons/career.svg" mode="aspectFit"></image>
+      </view>
+      <text class="btn-text">事业测评</text>
+    </navigator>
+    <navigator url="/pages/love/love" class="btn" hover-class="btn-hover">
+      <view class="btn-svg">
+        <image src="/images/icons/love.svg" mode="aspectFit"></image>
+      </view>
+      <text class="btn-text">姻缘测评</text>
+    </navigator>
+    <navigator url="/pages/psychology/psychology" class="btn" hover-class="btn-hover">
+      <view class="btn-svg">
+        <image src="/images/icons/psychology.svg" mode="aspectFit"></image>
+      </view>
+      <text class="btn-text">心理测评</text>
+    </navigator>
+  </view>
+
+  <!-- Comprehensive score area as a button -->
+  <navigator url="#" class="score-btn">
+    <text class="score-title">综合分数</text>
+  </navigator>
+</view>

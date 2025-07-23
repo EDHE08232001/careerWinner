@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#FFFFFF"/>
+
+  <!-- Crown -->
+  <path d="M250,80 L220,150 L150,150 L190,200 L140,250 L200,230 L250,280 L300,230 L360,250 L310,200 L350,150 L280,150 Z" 
+        fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+
+  <!-- Crown Gems -->
+  <circle cx="250" cy="100" r="15" fill="#FF4136"/>
+  <circle cx="190" cy="150" r="10" fill="#FF4136"/>
+  <circle cx="310" cy="150" r="10" fill="#FF4136"/>
+
+  <!-- Compass -->
+  <circle cx="250" cy="250" r="80" fill="#4285F4" stroke="#3367D6" stroke-width="2"/>
+
+  <!-- Compass Scales -->
+  <line x1="250" y1="175" x2="250" y2="190" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="250" y1="310" x2="250" y2="325" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="175" y1="250" x2="190" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="310" y1="250" x2="325" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Direction Labels as Letters -->
+  <text x="250" y="170" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N</text> <!-- North -->
+  <text x="250" y="340" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">S</text> <!-- South -->
+  <text x="170" y="255" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">W</text> <!-- West -->
+  <text x="330" y="255" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">E</text> <!-- East -->
+
+  <!-- Ribbon -->
+  <path d="M150,350 Q200,330 250,350 Q300,370 350,350" fill="none" stroke="#C0C0C0" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Text -->
+  <text x="250" y="260" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333333">人生赢家</text>
+</svg>

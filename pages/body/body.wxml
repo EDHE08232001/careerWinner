@@ -1,0 +1,52 @@
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="custom-nav">
+    <view class="back-icon" bindtap="handleNavigationBack">
+      <view class="back-arrow"></view>
+      <text class="back-text">返回</text>
+    </view>
+    <view class="nav-title">身体测评</view>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="content">
+    <view class="section-title">身体评测项目</view>
+    
+    <!-- 评测按钮区域 -->
+    <view class="btn-group" wx:if="{{!showHeightResult && !showHeightInput}}">
+      <!-- 身高评测按钮 -->
+      <view class="evaluation-btn" bindtap="showHeightEvaluation">
+        <view class="btn-svg">
+          <image src="/images/icons/height.svg" mode="aspectFit"></image>
+        </view>
+        <text class="btn-text">身高评测</text>
+      </view>
+      
+      <!-- 这里可以添加更多评测按钮 -->
+    </view>
+    
+    <!-- 身高评测输入区域 -->
+    <view class="height-evaluation-section" wx:if="{{showHeightInput}}">
+      <view class="input-section">
+        <view class="input-title-center">身高评测</view>
+        <text class="input-label">请输入您的身高(cm):</text>
+        <input type="digit" class="height-input" value="{{height}}" bindinput="onHeightInput" placeholder="例如: 175" />
+        <button class="evaluate-btn" bindtap="evaluateHeight">开始评测</button>
+      </view>
+    </view>
+    
+    <!-- 身高评测结果区域 -->
+    <view class="result-section" wx:if="{{showHeightResult}}">
+      <view class="result-card">
+        <view class="result-title">身高评测结果</view>
+        <view class="result-content">
+          <text class="result-text">您的身高超过了</text>
+          <text class="result-value">{{heightPercentile}}%</text>
+          <text class="result-text">的中国成年男性</text>
+        </view>
+        <view class="result-note">数据来源根据:中国国家卫健委</view>
+        <button class="back-btn" bindtap="backToInputPage">重新评测</button>
+      </view>
+    </view>
+  </view>
+</view> 

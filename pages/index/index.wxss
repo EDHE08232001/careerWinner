@@ -1,0 +1,104 @@
+.container {
+  padding: 16px;
+  padding-top: 40px; /* Add top padding to move the UI down */
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px; /* Space between the logo and title */
+}
+
+.logo {
+  width: 120px; /* Adjust logo size */
+  height: 120px; /* Adjust logo size */
+  border-radius: 50%; /* Make the logo round */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow to logo */
+}
+
+.simple-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.simple-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+  grid-gap: 16px; /* Adds space between the buttons */
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 400px; /* Ensures buttons don't stretch too wide */
+}
+
+.btn {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.btn-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.btn-svg image {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-text {
+  font-size: 16px;
+  color: #555;
+}
+
+.score-btn {
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.score-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.score-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.score-value {
+  font-size: 32px;
+  color: #ff6b6b;
+  margin-bottom: 12px;
+}
