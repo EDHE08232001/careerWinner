@@ -1,5 +1,8 @@
 Page({
   data: {
+    questionText: "你什么时候睡觉？",
+    timeOptions: ['<22:00', '22:00-23:00', '23:00-24:00', '>24:00'],
+    selectedTime: '',
     height: '', // 用户输入的身高
     heightPercentile: null, // 身高百分比结果
     showHeightResult: false, // 是否显示身高评测结果
@@ -55,6 +58,13 @@ Page({
   onHeightInput(e) {
     this.setData({
       height: e.detail.value
+    })
+  },
+
+  // 选择睡觉时间
+  onSelectTime(e) {
+    this.setData({
+      selectedTime: e.currentTarget.dataset.value
     })
   },
 

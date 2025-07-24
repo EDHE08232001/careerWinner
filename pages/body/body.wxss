@@ -233,4 +233,23 @@
 
 .back-btn:active {
   background-color: #e0e0e0;
-} 
+}
+
+/* 问答卡片选项样式 */
+.option-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.option-item {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.option-item:active {
+  background-color: #e0e0e0;
+}
