@@ -1,4 +1,5 @@
 .weui-navigation-bar {
+  padding-top: env(safe-area-inset-top);
   --weui-FG-0:rgba(0,0,0,.9);
   --height: 44px;
   --left: 16px;
@@ -17,7 +18,7 @@
   position: relative;
   top: 0;
   left: 0;
-  height: calc(var(--height) + env(safe-area-inset-top));
+  height: calc(var(--height) + env(safe-area-inset-top)); /* Adjust the height to include the notch area */
   display: flex;
   flex-direction: row;
   align-items: center;
