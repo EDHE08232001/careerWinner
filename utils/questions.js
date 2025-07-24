@@ -1,18 +1,29 @@
-try {
-  // Read the questions data from the JSON file
-  const questionsData = require('../data/questions.json');
-  console.log('Successfully imported questionsData:', questionsData);
+// Utility to fetch questions from cloud service
+// Still Incomplete, back needed
 
-  // Destructure the questions data into respective arrays
-  const { bodyQuestions, careerQuestions, loveQuestions, psychologyQuestions } = questionsData;
+// mock API, later save this to env or make it secrets
+const API_URL = 'https://example.com/api/questions'
 
-  // Export the questions to be used in other files
-  module.exports = {
-      bodyQuestions,
-      careerQuestions,
-      loveQuestions,
-      psychologyQuestions
-  };
-} catch (error) {
-  console.error('Error importing questions.json:', error);
+function fetchQuestions(type) {
+  return Promise((resolve, reject) => {
+    wx.request({
+      url: API_URL,
+      method: 'POST',
+      data: { type },
+      success(res) {
+        if (res.statusCode === 200 && res.data && Array.isArray(res.data.questions)) {
+          resolve(res.data.questions)
+        } else {
+          reject(res.data || res.errMsg || 'Invalid Response')
+        }
+      },
+      fail(err) {
+        reject(err)
+      }
+    })
+  })
+}
+
+module.exports = {
+  fetchQuestions
 }

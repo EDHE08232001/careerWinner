@@ -1,12 +1,11 @@
 const app = getApp()
 const { sendToAI } = require('../../utils/ai')
 const { saveScore } = require('../../utils/score')
-const { careerQuestions } = require('../../utils/questions')
+const { fetchQuestions } = require('../../utils/questions')
 
 Page({
   data: {
-    // Question bank of 100 placeholder questions
-    questionBank: careerQuestions,
+    questionBank: [],
     questions: [],
     currentIndex: 0,
     answers: [],
@@ -22,10 +21,15 @@ Page({
       })
       return
     }
-    const shuffled = [...this.data.questionBank].sort(() => Math.random() - 0.5)
-    const questions = shuffled.slice(0, 15)
-    this.setData({ questions })
-    this.updateProgress()
+
+    fetchQuestions('career').then(bank => {
+      const shuffled = [...bank].sort(() => Math.random() - 0.5)
+      const questions = shuffled.slice(0, 15)
+      this.setData({ questionBank: bank, questions })
+      this.updateProgress()
+    }).catch(err => {
+      console.err('Filed to load questions', err)
+    })
   },
 
   onShow() {
