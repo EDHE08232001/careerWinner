@@ -4,7 +4,8 @@
     "pages/assessmentBody/assessmentBody",
     "pages/assessmentCareer/assessmentCareer",
     "pages/assessmentLove/assessmentLove",
-    "pages/assessmentPsychology/assessmentPsychology"
+    "pages/assessmentPsychology/assessmentPsychology",
+    "pages/userInfo/userInfo"
   ],
   "window": {
     "navigationBarTextStyle": "black",

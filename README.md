@@ -4,6 +4,8 @@
 
 The **Career Winner WeChat Mini-Program** offers a user-friendly platform for career-related and personal assessments. This README provides an overview of the app's structure, key components, best practices for developing and enhancing WeChat Mini-Programs, details on what has been completed so far, and what remains to be done.
 
+Recent updates add a user verification step and a mock AI integration. Users must submit a valid phone number and email before starting any assessment, and their answers are now sent to a placeholder API for future AI analysis.
+
 ## Code Authors:
 
 - Edward He
@@ -317,7 +319,7 @@ WeChat uses **WXSS** for styling. You can use standard CSS properties along with
 
 ### 1. User Information Collection
 - **Requirement**: Users should enter their personal phone number and email address (with verification) before taking any assessment.
-- **Status**: This feature has not been implemented. Currently, users can directly start the assessments without providing their contact information.
+- **Status**: A new `userInfo` page collects and validates phone and email. User cannot access until information is provided. However, it still lacks phone and email verivication mechanism. 
 
 ### 2. Comprehensive Score Calculation
 - **Requirement**: The **综合分数** (Comprehensive Score) should be determined based on users' choices from the four assessments. If there are undone assessments, the comprehensive score should still be provided but with a warning of low accuracy. Additionally, the score for each assessment and the percentage of people defeated in the user's region should be displayed.
@@ -329,7 +331,7 @@ WeChat uses **WXSS** for styling. You can use standard CSS properties along with
 
 ### 4. AI Evaluation API
 - **Requirement**: There needs to be an API to interact with DeepSeek or Doubao. The AI will evaluate the choices users select in each assessment, and based on those scores, it will rate the percentage of people the user has beaten in their country.
-- **Status**: The API has not been developed, and there is no integration with the AI services.
+- **Status**: **Partially Completed** A mock API function has been written in `utils/ai.js` which stimulates sending answers to an external AI service.
 
 ## Conclusion
 

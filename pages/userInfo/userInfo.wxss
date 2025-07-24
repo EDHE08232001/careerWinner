@@ -1,0 +1,14 @@
+.container {
+  padding: 20px;
+}
+.form-item {
+  margin-bottom: 16px;
+}
+.label {
+  display: block;
+  margin-bottom: 8px;
+}
+.submit-btn {
+  background-color: #07c160;
+  color: #fff;
+}
