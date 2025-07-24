@@ -1,6 +1,6 @@
 .container {
   padding: 16px;
-  padding-top: 40px; /* Add top padding to move the UI down */
+  padding-top: 50px; /* Add top padding to move the UI down */
   background-color: #f9f9f9;
   min-height: 100vh;
   box-sizing: border-box;
@@ -95,6 +95,13 @@
   font-weight: bold;
   margin-bottom: 12px;
   color: #333;
+}
+
+.score-list text {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #666;
 }
 
 .score-value {

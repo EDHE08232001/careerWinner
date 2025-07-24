@@ -3,24 +3,27 @@ const {sendToAI} = require('../../utils/ai')
 
 Page({
   data: {
-    // Question bank of 100 placeholder
+    // Question bank of 100 placeholder questions
     questionBank: Array.from({ length: 100 }, (_, i) => ({
-      question: `问题${i + 1}：示例题目${i + 1}`,
+      question: `问题${i + 1}: 示例题目${i + 1}`,
       options: ['选项A', '选项B', '选项C', '选项D']
     })),
     questions: [],
     currentIndex: 0,
     answers: [],
     finished: false,
-    progress: '1/15'
+    progress: '1/15',
+    aiPercent: null
   },
 
   onLoad() {
     if (!app.globalData.userInfo) {
-      wx.redirectTo({ url: '/pages/userInfo/userInfo' })
+      wx.redirectTo({
+        url: '/pages/userInfo/userInfo'
+      })
       return
     }
-    const shuffled = [...this.data.questionBank].sort(() => Math.random() - 0.5)
+    const shuffled = [...this.data.questionBank].sort(() => Math.random - 0.5)
     const questions = shuffled.slice(0, 15)
     this.setData({ questions })
     this.updateProgress()
@@ -45,10 +48,21 @@ Page({
     const { answers, currentIndex, questions } = this.data
     answers[currentIndex] = value
     if (currentIndex + 1 >= questions.length) {
-      this.setData({ answers, finished: true })
+      // calculate scaled score when finished
+      const total = answer.reduce((sum, v) => sum + Number(v), 0)
+      const score = Math.round(total / (questions.length * 4) * 100)
 
-      // mock send to ai service
-      sendToAI({ type: 'career', answers, userInfo: app.globalData.userInfo })
+      // Send answers and questions to the mock AI service
+      sendToAI({
+        type: 'career',
+        questions,
+        answers,
+        userInfo: app.globalData.userInfo
+      }).then(res => {
+        const percent = res.percent || 0
+        saveScore('career', {score, percent})
+        this.setData({ answers, finished: true, aiPercent: percent })
+      })
     } else {
       this.setData({ answers, currentIndex: currentIndex + 1 })
       this.updateProgress()

@@ -12,7 +12,8 @@ Page({
     currentIndex: 0,
     answers: [],
     finished: false,
-    progress: '1/15'
+    progress: '1/15',
+    aiPercent: null
   },
 
   onLoad() {
@@ -47,10 +48,21 @@ Page({
     const { answers, currentIndex, questions } = this.data
     answers[currentIndex] = value
     if (currentIndex + 1 >= questions.length) {
-      this.setData({ answers, finished: true })
+      // calculate scaled score when finished
+      const total = answer.reduce((sum, v) => sum + Number(v), 0)
+      const score = Math.round(total / (questions.length * 4) * 100)
 
-      // send data to the (mock) AI service
-      sendToAI({ type: 'body', answers, userInfo: app.globalData.userInfo })
+      // Send answers and questions to the mock AI service
+      sendToAI({
+        type: 'body',
+        questions,
+        answers,
+        userInfo: app.globalData.userInfo
+      }).then(res => {
+        const percent = res.percent || 0
+        saveScore('body', {score, percent})
+        this.setData({ answers, finished: true, aiPercent: percent })
+      })
     } else {
       this.setData({ answers, currentIndex: currentIndex + 1 })
       this.updateProgress()

@@ -1,5 +1,6 @@
 .container {
   padding: 20px;
+  padding-top: calc(env(safe-area-inset-top) + 100px);
 }
 .form-item {
   margin-bottom: 16px;

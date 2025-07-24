@@ -35,5 +35,12 @@
   <!-- Comprehensive score area as a button -->
   <navigator url="#" class="score-btn">
     <text class="score-title">综合分数</text>
+
+    <view class="score-list">
+      <text wx:if="{{bodyScore !== null}}">身体测评：{{bodyScore}} (击败 {{bodyPercent}}%)</text>
+      <text wx:if="{{careerScore !== null}}">事业测评：{{careerScore}} (击败 {{careerPercent}}%)</text>
+      <text wx:if="{{loveScore !== null}}">姻缘测评：{{loveScore}} (击败 {{lovePercent}}%)</text>
+      <text wx:if="{{psychologyScore !== null}}">心理测评：{{psychologyScore}} (击败 {{psychologyPercent}}%)</text>
+    </view>
   </navigator>
 </view>
