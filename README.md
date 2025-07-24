@@ -1,8 +1,8 @@
 # Career Winner WeChat Mini-Program Documentation
 
 ## Code Authors:
-- 1) Edward He
-- 2) Jiade Wang
+- Edward He
+- Jiade Wang
 
 ## Overview
 
