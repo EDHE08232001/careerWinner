@@ -1,0 +1,9 @@
+<view>
+  <text class="question-text">
+    { { question } }
+  </text>
+
+  <view class="answer-area">
+    <slot></slot>
+  </view>
+</view>

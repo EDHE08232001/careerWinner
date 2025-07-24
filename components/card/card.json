@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
-  "usingComponents": {
-  }
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {}
 }
