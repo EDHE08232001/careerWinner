@@ -1,13 +1,11 @@
 const app = getApp()
 const {sendToAI} = require('../../utils/ai')
+const { loveQuestions } = require('../../utils/questions')
 
 Page({
   data: {
     // Question bank of 100 placeholder questions
-    questionBank: Array.from({ length: 100 }, (_, i) => ({
-      question: `问题${i + 1}: 示例题目${i + 1}`,
-      options: ['选项A', '选项B', '选项C', '选项D']
-    })),
+    questionBank: loveQuestions,
     questions: [],
     currentIndex: 0,
     answers: [],
@@ -23,7 +21,7 @@ Page({
       })
       return
     }
-    const shuffled = [...this.data.questionBank].sort(() => Math.random - 0.5)
+    const shuffled = [...this.data.questionBank].sort(() => Math.random() - 0.5)
     const questions = shuffled.slice(0, 15)
     this.setData({ questions })
     this.updateProgress()
