@@ -1,5 +1,9 @@
 # Career Winner WeChat Mini-Program Documentation
 
+## Code Authors:
+- 1) Edward He
+- 2) Jiade Wang
+
 ## Overview
 
 The **Career Winner WeChat Mini-Program** offers a user-friendly platform for career-related and personal assessments. This README provides an overview of the app's structure, key components, and best practices for developing and enhancing WeChat Mini-Programs.
