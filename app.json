@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/body/body",
     "pages/career/career",
-    "pages/income/income"
+    "pages/income/income",
+    "pages/assessmentBody/assessmentBody"
   ],
   "window": {
     "navigationBarTextStyle": "black",

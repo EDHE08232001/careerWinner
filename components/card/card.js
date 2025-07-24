@@ -6,6 +6,10 @@ Component({
     question: {
       type: String,
       value: ''
+    },
+    progress: {
+      type: String,
+      value: ''
     }
   },
   data: {},

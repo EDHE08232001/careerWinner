@@ -6,7 +6,7 @@
 
   <!-- Function button area -->
   <view class="btn-group">
-    <navigator url="/pages/body/body" class="btn" hover-class="btn-hover">
+    <navigator url="/pages/assessmentBody/assessmentBody" class="btn" hover-class="btn-hover">
       <view class="btn-svg">
         <image src="/images/icons/health.svg" mode="aspectFit"></image>
       </view>

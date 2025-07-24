@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="custom-nav">
+    <view class="back-icon" bindtap="onBack">
+      <view class="back-arrow"></view>
+      <text class="back-text">返回</text>
+    </view>
+    <view class="nav-title">测评</view>
+  </view>
+
+  <view class="content" wx:if="{{!finished}}">
+    <question-card question="{{questions[currentIndex].question}}" progress="{{progress}}">
+      <view class="option-list">
+        <view class="option-item" wx:for="{{questions[currentIndex].options}}" wx:key="index" data-value="{{item}}" bindtap="selectOption">
+          {{item}}
+        </view>
+      </view>
+    </question-card>
+  </view>
+
+  <view class="content" wx:if="{{finished}}">
+    <view class="finish-card">
+      <text class="finish-text">测评完成，感谢参与！</text>
+      <button class="back-btn" bindtap="onBack">返回</button>
+    </view>
+  </view>
+</view>
