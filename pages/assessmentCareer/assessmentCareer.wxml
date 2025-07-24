@@ -4,7 +4,7 @@
       <view class="back-arrow"></view>
       <text class="back-text">返回</text>
     </view>
-    <view class="nav-title">测评</view>
+    <view class="nav-title">事业测评</view>
   </view>
 
   <view class="content" wx:if="{{!finished}}">
@@ -19,8 +19,7 @@
 
   <view class="content" wx:if="{{finished}}">
     <view class="finish-card">
-      <text class="finish-text">本测评完成！</text>
-      <text class="finish-text">可以做其他测评来提升综合分数准确性！！！</text>
+      <text class="finish-text">测评完成，感谢参与！</text>
       <button class="back-btn" bindtap="onBack">返回</button>
     </view>
   </view>
