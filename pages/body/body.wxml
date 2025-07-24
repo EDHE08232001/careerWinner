@@ -1,3 +1,4 @@
+<!-- careerWinner/pages/body/body.wxml -->
 <view class="container">
   <!-- 导航栏 -->
   <view class="custom-nav">
