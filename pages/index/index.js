@@ -1,4 +1,5 @@
 const app = getApp()
+const { getScores, calculateComprehensive } = require('../../utils/score')
 
 Page({
   data: {

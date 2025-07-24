@@ -1,9 +1,8 @@
-const path = require('path');
-const fs = require('fs');
-
+// Import the questions JSON directly.  Using `require` avoids the need for
+// Node's `fs` module which isn't available in the mini-program runtime.
 // Read the questions data from the JSON file
-const questionsData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../data/questions.json'), 'utf8')
+const questionsData = require(
+  '../data/questions.json'
 );
 
 // Destructure the questions data into respective arrays

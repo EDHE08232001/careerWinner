@@ -3,12 +3,12 @@ App({
     console.log('App Launched');
 
     // Load cached user info if exists
-    const info = wx.getStorageSync('userinfo')
+    const info = wx.getStorageSync('userInfo')
     if (info) {
-      this.globalData.userinfo = info
+      this.globalData.userInfo = info
     }
   },
   globalData: {
-    userinfo: null
+    userInfo: null
   }
 })

@@ -1,5 +1,6 @@
 const app = getApp()
-const {sendToAI} = require('../../utils/ai')
+const { sendToAI } = require('../../utils/ai')
+const { saveScore } = require('../../utils/score')
 const { bodyQuestions } = require('../../utils/questions')
 
 Page({
@@ -47,7 +48,7 @@ Page({
     answers[currentIndex] = value
     if (currentIndex + 1 >= questions.length) {
       // calculate scaled score when finished
-      const total = answer.reduce((sum, v) => sum + Number(v), 0)
+      const total = answers.reduce((sum, v) => sum + Number(v), 0)
       const score = Math.round(total / (questions.length * 4) * 100)
 
       // Send answers and questions to the mock AI service

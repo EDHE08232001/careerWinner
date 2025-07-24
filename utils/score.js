@@ -14,7 +14,8 @@ function getScores() {
 }
 
 function calculateComprehensive(scores) {
-  const values = Object.values(scores).map(v => v.scores)
+  // scores are stored as objects {score, prsent}. Extract the score values
+  const values = Object.values(scores).map(v => v.score)
 
   if (!values.length) {
     return 0
