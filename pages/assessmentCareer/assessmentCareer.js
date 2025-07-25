@@ -23,7 +23,7 @@ Page({
     }
 
     fetchQuestions(type).then(bank => {
-      const shuffled = [...bank].sort(() => Math.random() - 5);
+      const shuffled = [...bank].sort(() => Math.random() - 0.5);
       const questions = shuffled.slice(0, 5); // choose 5 random questions
 
       this.setData({
@@ -52,7 +52,7 @@ Page({
     });
   },
 
-  selectOptions() {
+  selectOptions(e) {
     const index = e.currentTarget.dataset.index;
     const { answers, currentIndex, questions } = this.data;
 
@@ -75,6 +75,12 @@ Page({
   onBack() {
     wx.navigateBack({
       delta: '1',
-    })
+    });
+  },
+
+  goHome() {
+    wx.reLaunch({
+      url: '/pages/index/index',
+    });
   }
 });

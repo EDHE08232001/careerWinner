@@ -21,7 +21,7 @@
     <view class="finish-card">
       <text class="finish-text">本测评完成！</text>
 
-      <button class="back-btn" bindtap="onBack">返回</button>
+      <button class="back-btn" bindtap="goHome">返回主页</button>
     </view>
   </view>
 </view>
