@@ -21,10 +21,6 @@
     <view class="finish-card">
       <text class="finish-text">测评完成，感谢参与！</text>
 
-      <text class="finish-text" wx:if="{{aiPercent !== null}}">
-        击败了全国 {{aiPercent}}% 的人
-      </text>
-
       <button class="back-btn" bindtap="onBack">返回</button>
     </view>
   </view>
