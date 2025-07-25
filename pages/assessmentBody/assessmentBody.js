@@ -52,7 +52,7 @@ Page({
     });
   },
 
-  selectOptions(e) {
+  selectOption(e) {
     const index = e.currentTarget.dataset.index;
     const { answers, currentIndex, questions } = this.data;
 

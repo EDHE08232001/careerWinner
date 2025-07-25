@@ -338,5 +338,17 @@ WeChat uses **WXSS** for styling. You can use standard CSS properties along with
 2. From the main page, tap **身体测评** to open body assessment page
 3. You should be able to see a question card
 
+### 12. Questions JSON Format
+```
+{
+  "type": [
+    {
+      "question": "question statement",
+      "options": "'A', 'B', 'C', 'C'"
+    }
+  ]
+}
+```
+
 ## Conclusion
 This **Career Winner WeChat Mini - Program** is structured for ease of development and scalability. It demonstrates the use of custom components, navigation, API interaction, and dynamic data handling. Follow the best practices provided in this guide to ensure your mini - program is well - optimized, maintainable, and scalable.
