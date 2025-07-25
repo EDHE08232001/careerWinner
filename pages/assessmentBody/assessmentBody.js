@@ -1,7 +1,7 @@
-const app = getApp()
-const { sendToAI } = require('../../utils/ai')
-const { saveScore } = require('../../utils/score')
-const { fetchQuestions } = require('../../utils/questions')
+const app = getApp();
+const { sendToAI } = require('../../utils/ai');
+const { saveScore } = require('../../utils/score');
+const { fetchQuestions } = require('../../utils/questions');
 
 Page({
   data: {
@@ -10,7 +10,7 @@ Page({
     currentIndex: 0,
     answers: [],
     finished: false,
-    progress: '1/15',
+    progress: '1/5', // 修改为 5 个问题
     aiPercent: null
   },
 
@@ -24,11 +24,11 @@ Page({
 
     fetchQuestions('body').then(bank => {
       const shuffled = [...bank].sort(() => Math.random() - 0.5)
-      const questions = shuffled.slice(0, 15)
+      const questions = shuffled.slice(0, 5) // 只选取 5 个随机问题
       this.setData({ questionBank: bank, questions })
       this.updateProgress()
     }).catch(err => {
-      console.err('Filed to load questions', err)
+      console.error('Failed to load questions', err)
     })
   },
 
@@ -39,7 +39,6 @@ Page({
     })
   },
 
-
   updateProgress() {
     const total = this.data.questions.length
     const index = this.data.currentIndex + 1
@@ -47,28 +46,27 @@ Page({
   },
 
   selectOption(e) {
-    const value = e.currentTarget.dataset.value
-    const { answers, currentIndex, questions } = this.data
-    answers[currentIndex] = value
+    const index = e.currentTarget.dataset.index;
+    const { answers, currentIndex, questions } = this.data;
+    answers[currentIndex] = index;
+  
     if (currentIndex + 1 >= questions.length) {
-      // calculate scaled score when finished
-      const total = answers.reduce((sum, v) => sum + Number(v), 0)
-      const score = Math.round(total / (questions.length * 4) * 100)
-
-      // Send answers and questions to the mock AI service
+      const total = answers.reduce((sum, v) => sum + v, 0);
+      const score = Math.round(total / (questions.length * 3) * 100); // max index is 3
+  
       sendToAI({
         type: 'body',
         questions,
         answers,
         userInfo: app.globalData.userInfo
       }).then(res => {
-        const percent = res.percent || 0
-        saveScore('body', {score, percent})
-        this.setData({ answers, finished: true, aiPercent: percent })
-      })
+        const percent = res.percent || 0;
+        saveScore('body', { score, percent });
+        this.setData({ answers, finished: true, aiPercent: percent });
+      });
     } else {
-      this.setData({ answers, currentIndex: currentIndex + 1 })
-      this.updateProgress()
+      this.setData({ answers, currentIndex: currentIndex + 1 });
+      this.updateProgress();
     }
   },
 

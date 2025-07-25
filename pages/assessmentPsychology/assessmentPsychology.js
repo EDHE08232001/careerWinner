@@ -10,7 +10,7 @@ Page({
     currentIndex: 0,
     answers: [],
     finished: false,
-    progress: '1/15',
+    progress: '1/5', // 修改为 5 个问题
     aiPercent: null
   },
 
@@ -22,13 +22,13 @@ Page({
       return
     }
 
-    fetchQuestions('body').then(bank => {
-      const shuffled = [...bank].sort(() => Math.random() - 0.5)
-      const questions = shuffled.slice(0, 15)
+    fetchQuestions('psychology').then(bank => {
+      const shuffled = [...bank.questions].sort(() => Math.random() - 0.5)
+      const questions = shuffled.slice(0, 5) // 只选取 5 个随机问题
       this.setData({ questionBank: bank, questions })
       this.updateProgress()
     }).catch(err => {
-      console.err('Filed to load questions', err)
+      console.error('Failed to load questions', err)
     })
   },
 
@@ -38,7 +38,6 @@ Page({
       backgroundColor: '#ffffff'
     })
   },
-
 
   updateProgress() {
     const total = this.data.questions.length
@@ -63,7 +62,7 @@ Page({
         userInfo: app.globalData.userInfo
       }).then(res => {
         const percent = res.percent || 0
-        saveScore('psychology', {score, percent})
+        saveScore('psychology', { score, percent })
         this.setData({ answers, finished: true, aiPercent: percent })
       })
     } else {
