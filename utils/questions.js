@@ -1,5 +1,5 @@
 const app = getApp();
-const API_URL = "https://career-winner-backend-EDHE.replit.app/questions"; // Replace with real backend URL
+const API_URL = "https://career-winner-backend-EDHE.replit.app/questions"; // currently deployed on git
 
 function fetchQuestions(type) {
   return new Promise((resolve, reject) => {
