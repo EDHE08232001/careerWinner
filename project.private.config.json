@@ -2,7 +2,7 @@
   "libVersion": "3.8.11",
   "projectname": "careerWinner",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "coverView": false,
     "lazyloadPlaceholderEnable": false,
     "skylineRenderEnable": false,
@@ -14,7 +14,7 @@
     "useStaticServer": false,
     "useLanDebug": false,
     "showES6CompileOption": false,
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "bigPackageSizeSupport": false,
     "checkInvalidKey": true,
     "ignoreDevUnusedFiles": true
