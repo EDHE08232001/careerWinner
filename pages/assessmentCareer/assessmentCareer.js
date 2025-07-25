@@ -23,7 +23,7 @@ Page({
     }
 
     fetchQuestions('career').then(bank => {
-      const shuffled = [...bank.questions].sort(() => Math.random() - 0.5)
+      const shuffled = [...bank].sort(() => Math.random() - 0.5)
       const questions = shuffled.slice(0, 5) // 只选取 5 个随机问题
       this.setData({ questionBank: bank, questions })
       this.updateProgress()
@@ -46,28 +46,27 @@ Page({
   },
 
   selectOption(e) {
-    const value = e.currentTarget.dataset.value
-    const { answers, currentIndex, questions } = this.data
-    answers[currentIndex] = value
+    const index = e.currentTarget.dataset.index;
+    const { answers, currentIndex, questions } = this.data;
+    answers[currentIndex] = index;
+  
     if (currentIndex + 1 >= questions.length) {
-      // calculate scaled score when finished
-      const total = answers.reduce((sum, v) => sum + Number(v), 0)
-      const score = Math.round(total / (questions.length * 4) * 100)
-
-      // Send answers and questions to the mock AI service
+      const total = answers.reduce((sum, v) => sum + v, 0);
+      const score = Math.round(total / (questions.length * 3) * 100); // max index is 3
+  
       sendToAI({
         type: 'career',
         questions,
         answers,
         userInfo: app.globalData.userInfo
       }).then(res => {
-        const percent = res.percent || 0
-        saveScore('career', { score, percent })
-        this.setData({ answers, finished: true, aiPercent: percent })
-      })
+        const percent = res.percent || 0;
+        saveScore('career', { score, percent });
+        this.setData({ answers, finished: true, aiPercent: percent });
+      });
     } else {
-      this.setData({ answers, currentIndex: currentIndex + 1 })
-      this.updateProgress()
+      this.setData({ answers, currentIndex: currentIndex + 1 });
+      this.updateProgress();
     }
   },
 

@@ -10,7 +10,7 @@
   <view class="content" wx:if="{{!finished}}">
     <question-card question="{{questions[currentIndex].question}}" progress="{{progress}}">
       <view class="option-list">
-        <view class="option-item" wx:for="{{questions[currentIndex].options}}" wx:key="index" data-value="{{item}}" bindtap="selectOption">
+        <view class="option-item" wx:for="{{questions[currentIndex].options}}" wx:key="index" data-index="{{index}}" bindtap="selectOption">
           {{item}}
         </view>
       </view>
