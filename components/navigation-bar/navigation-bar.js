@@ -52,10 +52,12 @@ Component({
   lifetimes: {
     attached() {
       const rect = wx.getMenuButtonBoundingClientRect()
-      const platform = (wx.getDeviceInfo() || wx.getSystemInfoSync()).platform
+      // Some APIs may not exist in lower versions; fallback to `getSystemInfoSync`
+      const deviceInfo = wx.getDeviceInfo() ? wx.getDeviceInfo() : wx.getSystemInfoSync()
+      const platform = deviceInfo.platform
       const isAndroid = platform === 'android'
       const isDevtools = platform === 'devtools'
-      const { windowWidth, safeArea: { top = 0, bottom = 0 } = {} } = wx.getWindowInfo() || wx.getSystemInfoSync()
+      const windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync()
       this.setData({
         ios: !isAndroid,
         innerPaddingRight: `padding-right: ${windowWidth - rect.left}px`,
@@ -80,12 +82,24 @@ Component({
     back() {
       const data = this.data
       if (data.delta) {
-        console.log(`Navigating back ${data.delta} page(s)`); 
+        console.log(`Navigating back ${data.delta} page(s)`)
         wx.navigateBack({
           delta: data.delta
         })
       }
       this.triggerEvent('back', { delta: data.delta }, {})
+    },
+    /**
+     * navigate to the homepage when the home button is tapped
+     */
+    home() {
+      console.log('Going back home...')
+
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+
+      this.triggerEvent('home', {}, {})
     }
   },
 })
