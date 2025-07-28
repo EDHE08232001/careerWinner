@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "question-card": "/components/card/card",
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
-  }
-}

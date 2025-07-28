@@ -1,13 +1,6 @@
 <view class="container">
-  <!-- <view class="custom-nav">
-    <view class="back-icon" bindtap="onBack">
-      <view class="back-arrow"></view>
-      <text class="back-text">返回</text>
-    </view>
-    <view class="nav-title">测评</view>
-  </view> -->
 
-  <navigation-bar title="身体测评" back="true" ></navigation-bar>
+  <navigation-bar title="{{title}}" back="true"></navigation-bar>
 
   <view class="content" wx:if="{{!finished}}">
     <question-card question="{{questions[currentIndex].question}}" progress="{{progress}}">

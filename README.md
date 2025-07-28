@@ -77,10 +77,7 @@ Career Winner is a WeChat mini - program that provides various types of assessme
 {
   "pages": [
     "pages/index/index",
-    "pages/assessmentBody/assessmentBody",
-    "pages/assessmentCareer/assessmentCareer",
-    "pages/assessmentLove/assessmentLove",
-    "pages/assessmentPsychology/assessmentPsychology",
+    "pages/assessment/assessment",
     "pages/userInfo/userInfo"
   ],
   "window": {
@@ -182,25 +179,25 @@ Page({
 
   <!-- Function button area -->
   <view class="btn - group">
-    <navigator url="/pages/assessmentBody/assessmentBody" class="btn" hover - class="btn - hover">
+    <navigator url="/pages/assessment/assessment?type=body" class="btn" hover - class="btn - hover">
       <view class="btn - svg">
         <image src="/images/icons/health.svg" mode="aspectFit"></image>
       </view>
       <text class="btn - text">身体测评</text>
     </navigator>
-    <navigator url="/pages/assessmentCareer/assessmentCareer" class="btn" hover - class="btn - hover">
+    <navigator url="/pages/assessment/assessment?type=career" class="btn" hover - class="btn - hover">
       <view class="btn - svg">
         <image src="/images/icons/career.svg" mode="aspectFit"></image>
       </view>
       <text class="btn - text">事业测评</text>
     </navigator>
-    <navigator url="/pages/assessmentLove/assessmentLove" class="btn" hover - class="btn - hover">
+    <navigator url="/pages/assessment/assessment?type=love" class="btn" hover - class="btn - hover">
       <view class="btn - svg">
         <image src="/images/icons/love.svg" mode="aspectFit"></image>
       </view>
       <text class="btn - text">姻缘测评</text>
     </navigator>
-    <navigator url="/pages/assessmentPsychology/assessmentPsychology" class="btn" hover - class="btn - hover">
+    <navigator url="/pages/assessment/assessment?type=psychology" class="btn" hover - class="btn - hover">
       <view class="btn - svg">
         <image src="/images/icons/psychology.svg" mode="aspectFit"></image>
       </view>
@@ -410,8 +407,8 @@ Page({
   margin - top: 50px;
 }
 ```
-- **pages/assessmentBody, pages/assessmentCareer, pages/assessmentLove, pages/assessmentPsychology**
-    - **.json files**: Configure the pages to use the `question - card` component.
+- **pages/assessment**
+    - **.json files**: Configures the page to use the `question-card` and `navigation-bar` components.
 ```json
 {
   "usingComponents": {
