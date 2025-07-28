@@ -24,6 +24,9 @@
   align-items: center;
   justify-content: center;
   padding-top: env(safe-area-inset-top);
+  /* default horizontal padding; right side may be overridden by JS */
+  padding-left: var(--left);
+  padding-right: var(--left);
   width: 100%;
   box-sizing: border-box;
   transition: background-color 0.3s ease; 
@@ -34,7 +37,8 @@
   padding-left: var(--left);
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  gap: 20px;
   height: 100%;
   box-sizing: border-box;
 }
