@@ -53,11 +53,14 @@ Component({
     attached() {
       const rect = wx.getMenuButtonBoundingClientRect()
       // Some APIs may not exist in lower versions; fallback to `getSystemInfoSync`
-      const deviceInfo = wx.getDeviceInfo() ? wx.getDeviceInfo() : wx.getSystemInfoSync()
+      const deviceInfo = wx.getDeviceInfo ? wx.getDeviceInfo() : wx.getSystemInfoSync()
       const platform = deviceInfo.platform
       const isAndroid = platform === 'android'
       const isDevtools = platform === 'devtools'
       const windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync()
+      const windowWidth = windowInfo.windowWidth
+      const top = windowInfo.statusBarHeight || 0
+
       this.setData({
         ios: !isAndroid,
         innerPaddingRight: `padding-right: ${windowWidth - rect.left}px`,

@@ -6,7 +6,7 @@
  */
 
  // End point of the AI backend
-const AI_API_URL = 'https://career-winner-backend-EDHE.replit.app/ai';
+const AI_API_URL = 'https://886edec9-5ffe-46e6-a680-af3625c500e3-00-8yrs0pqhalx2.kirk.replit.dev/ai';
 
  /**
   * Send assessment answers to the AI backend
