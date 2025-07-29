@@ -30,7 +30,7 @@ function sendToAI(payload) {
       data: payload,
 
       success: (res) => {
-        resolve(Res.data);
+        resolve(res.data);
       },
 
       fail: (err) => {

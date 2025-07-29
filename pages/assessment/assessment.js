@@ -1,6 +1,6 @@
 const app = getApp();
 const { fetchQuestions } = require('../../utils/questions');
-const { sendToAI } = require('../../utils/ai');
+const { sendToAI } = require('../../utils/ai.js');
 
 // Map assessment type to title for navigation bar display
 const TITLE_MAP = {
