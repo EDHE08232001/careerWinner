@@ -1,5 +1,6 @@
 const app = getApp();
 const { fetchQuestions } = require('../../utils/questions');
+const { sendToAI } = require('../../utils/ai');
 
 // Map assessment type to title for navigation bar display
 const TITLE_MAP = {
@@ -67,6 +68,35 @@ Page({
     if (currentIndex + 1 >= questions.length) {
       // All questions answered
       this.setData({ answers, finished: true });
+
+      // Preparing POST request body (data) to backend
+      const payload = {
+        userInfo: app.globalData.userInfo,
+        type: this.data.type,
+        responses: questions.map((q, i) => ({
+          question: q.question,
+          // Include the selected option text and its index for clarity
+          answerIndex: answers[i],
+          answerText: q.options[answers[i]]
+        }))
+      };
+
+      // Send to backend
+      sendToAI(payload).then((res) => {
+        // Display backend message so the user knows the data was received
+        wx.showToast({
+          title: res.message || 'Submission Successful',
+          icon: 'success',
+          duration: 2000
+        });
+        console.log('AI response: ', res);
+      }).catch((err) => {
+        wx.showToast({
+          title: 'Submission Failed',
+          icon: 'error'
+        });
+        console.error('Error sending to AI: ', err);
+      });
     } else {
       this.setData({ answers, currentIndex: currentIndex + 1 });
       this.updateProgress();
