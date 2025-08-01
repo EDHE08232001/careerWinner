@@ -85,14 +85,14 @@ Page({
       sendToAI(payload).then((res) => {
         // Display backend message so the user knows the data was received
         wx.showToast({
-          title: res.message || 'Submission Successful',
+          title: res.result || 'Submission Successful',
           icon: 'success',
           duration: 2000
         });
         console.log('AI response: ', res);
       }).catch((err) => {
         wx.showToast({
-          title: 'Submission Failed',
+          title: res.error || 'Submission Failed',
           icon: 'error'
         });
         console.error('Error sending to AI: ', err);
