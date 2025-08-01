@@ -8,7 +8,7 @@ Page({
   onLoad() {
     this.setData({
       // Use global data to retrieve data AI analysis result
-      result: app.globalData.result || '暂无结果'
+      result: app.globalData.aiResult || '暂无结果'
     });
   },
 
