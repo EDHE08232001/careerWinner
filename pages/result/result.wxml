@@ -1,0 +1,10 @@
+<view class="container">
+  <navigation-bar title="测评结果" back="true" homeButton="true"></navigation-bar>
+
+  <view class="result-card">
+    <text class="result-title">AI 分析结果</text>
+    <text class="result-text">{{result}}</text>
+  </view>
+
+  <button class="back-btn" bindtap="goHome">返回主页</button>
+</view>

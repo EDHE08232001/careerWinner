@@ -81,21 +81,27 @@ Page({
         }))
       };
 
-      // Send to backend
+      // Send answers to backend and navigate to result page when done
+      wx.showLoading({ title: '分析中...' });
+
       sendToAI(payload).then((res) => {
-        // Display backend message so the user knows the data was received
-        wx.showToast({
-          title: res.result || 'Submission Successful',
-          icon: 'success',
-          duration: 2000
+        console.log('AI Response', res);
+
+        // Store result for display on result page
+        app.globalData.aiResult = res.result || '暂无分析结果...';
+
+        wx.hideLoading();
+
+        wx.navigateTo({
+          url: '/pages/result/result',
         });
-        console.log('AI response: ', res);
       }).catch((err) => {
+        wx.hideLoading();
         wx.showToast({
-          title: res.error || 'Submission Failed',
+          title: '提交失败',
           icon: 'error'
         });
-        console.error('Error sending to AI: ', err);
+        console.log('Error sending to AI: ', err);
       });
     } else {
       this.setData({ answers, currentIndex: currentIndex + 1 });
