@@ -16,18 +16,30 @@ Page({
   loadRankings() {
     const rankings = wx.getStorageSync('userRankings') || [];
     
-    // 分离身高和收入数据
-    const heightData = rankings.filter(item => item.height > 0).map(item => ({
-      ...item,
-      score: this.calculateHeightScore(item.height),
-      percentile: this.getHeightPercentile(item.height)
-    })).sort((a, b) => b.score - a.score);
+    // 只显示最新的数据（最后一条记录）
+    const latestRanking = rankings[rankings.length - 1];
+    
+    if (!latestRanking) {
+      this.setData({
+        heightRankings: [],
+        incomeRankings: [],
+        hasData: false
+      });
+      return;
+    }
+    
+    // 分离身高和收入数据，只显示最新用户的数据
+    const heightData = latestRanking.height > 0 ? [{
+      ...latestRanking,
+      score: this.calculateHeightScore(latestRanking.height),
+      percentile: this.getHeightPercentile(latestRanking.height)
+    }] : [];
 
-    const incomeData = rankings.filter(item => item.income > 0).map(item => ({
-      ...item,
-      score: this.calculateIncomeScore(item.income),
-      percentile: this.getIncomePercentile(item.income)
-    })).sort((a, b) => b.score - a.score);
+    const incomeData = latestRanking.income > 0 ? [{
+      ...latestRanking,
+      score: this.calculateIncomeScore(latestRanking.income),
+      percentile: this.getIncomePercentile(latestRanking.income)
+    }] : [];
 
     this.setData({
       heightRankings: heightData,

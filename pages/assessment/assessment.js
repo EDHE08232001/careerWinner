@@ -60,8 +60,14 @@ Page({
   },
 
   updateProgress() {
-    const total = this.data.questions.length;
-    const index = this.data.currentIndex + 1;
+    let total = this.data.questions.length;
+    let index = this.data.currentIndex + 1;
+    
+    // 身体测评和事业测评有额外的输入步骤
+    if (this.data.type === 'body' || this.data.type === 'career') {
+      total = 6; // 5个问题 + 1个输入步骤
+    }
+    
     this.setData({ progress: `${index} / ${total}` });
   },
 
@@ -76,13 +82,15 @@ Page({
         this.setData({ 
           answers, 
           currentStep: 'height',
-          showHeightInput: true 
+          showHeightInput: true,
+          progress: '6 / 6'
         });
       } else if (type === 'career') {
         this.setData({ 
           answers, 
           currentStep: 'income',
-          showIncomeInput: true 
+          showIncomeInput: true,
+          progress: '6 / 6'
         });
       } else {
         this.completeAssessment();
