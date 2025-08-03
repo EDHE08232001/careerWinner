@@ -1,0 +1,47 @@
+.input-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin: 20rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10rpx);
+}
+
+.progress {
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.title-text {
+  display: block;
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+}
+
+.input-field {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  text-align: center;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 4rpx rgba(102, 126, 234, 0.1);
+} 

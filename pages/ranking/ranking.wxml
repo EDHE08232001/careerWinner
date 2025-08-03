@@ -1,0 +1,133 @@
+<view class="container">
+  <navigation-bar title="排行榜" back="true"></navigation-bar>
+
+  <view class="content">
+    <view wx:if="{{!hasData}}" class="no-data">
+      <text class="no-data-text">暂无数据</text>
+      <text class="no-data-subtext">请先完成测评以查看排行榜</text>
+      <button class="back-btn" bindtap="goHome">返回主页</button>
+    </view>
+
+    <view wx:else class="rankings">
+      <!-- 身高排行榜 -->
+      <view class="ranking-section">
+        <view class="section-header">
+          <text class="section-title">身高排行榜</text>
+        </view>
+        
+        <view class="ranking-list" wx:if="{{heightRankings.length > 0}}">
+          <view class="ranking-item" wx:for="{{heightRankings}}" wx:key="index">
+            <view class="rank-number">{{index + 1}}</view>
+            <view class="user-info">
+              <text class="user-name">{{item.name}}</text>
+              <text class="user-score">身高分数: {{item.score}}</text>
+            </view>
+            <view class="user-details">
+              <text class="detail-item">{{item.height}}cm</text>
+              <text class="detail-item">{{item.percentile}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <view wx:else class="empty-section">
+          <text class="empty-text">暂无身高数据</text>
+        </view>
+
+        <!-- 身高参考数据表格 -->
+        <view class="reference-table">
+          <text class="table-title">参考数据 (中国卫健委发布)</text>
+          <view class="table-header">
+            <text class="table-cell">身高范围</text>
+            <text class="table-cell">人群占比</text>
+            <text class="table-cell">说明</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">160cm以下</text>
+            <text class="table-cell">3%</text>
+            <text class="table-cell">矮小症筛查阈值</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">160-169.7cm</text>
+            <text class="table-cell">25%</text>
+            <text class="table-cell">低于全国平均</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">169.7-175cm</text>
+            <text class="table-cell">52.6%</text>
+            <text class="table-cell">平均身高区间</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">175-180cm</text>
+            <text class="table-cell">15%</text>
+            <text class="table-cell">略高于平均身高</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">180cm以上</text>
+            <text class="table-cell">4.4%</text>
+            <text class="table-cell">高个子人群</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 收入排行榜 -->
+      <view class="ranking-section">
+        <view class="section-header">
+          <text class="section-title">收入排行榜</text>
+        </view>
+        
+        <view class="ranking-list" wx:if="{{incomeRankings.length > 0}}">
+          <view class="ranking-item" wx:for="{{incomeRankings}}" wx:key="index">
+            <view class="rank-number">{{index + 1}}</view>
+            <view class="user-info">
+              <text class="user-name">{{item.name}}</text>
+              <text class="user-score">收入分数: {{item.score}}</text>
+            </view>
+            <view class="user-details">
+              <text class="detail-item">{{item.income}}元/月</text>
+              <text class="detail-item">{{item.percentile}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <view wx:else class="empty-section">
+          <text class="empty-text">暂无收入数据</text>
+        </view>
+
+        <!-- 收入参考数据表格 -->
+        <view class="reference-table">
+          <text class="table-title">参考数据 (国家统计局数据)</text>
+          <view class="table-header">
+            <text class="table-cell">收入分组</text>
+            <text class="table-cell">月均收入</text>
+            <text class="table-cell">人群占比</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">低收入组</text>
+            <text class="table-cell">795元</text>
+            <text class="table-cell">20%</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">中间偏下收入组</text>
+            <text class="table-cell">1,800元</text>
+            <text class="table-cell">20%</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">中间收入组</text>
+            <text class="table-cell">2,827元</text>
+            <text class="table-cell">20%</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">中间偏上收入组</text>
+            <text class="table-cell">4,447元</text>
+            <text class="table-cell">20%</text>
+          </view>
+          <view class="table-row">
+            <text class="table-cell">高收入组</text>
+            <text class="table-cell">8,234元</text>
+            <text class="table-cell">20%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

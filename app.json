@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/assessment/assessment",
     "pages/result/result",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/ranking/ranking"
   ],
   "window": {
     "navigationBarTextStyle": "black",

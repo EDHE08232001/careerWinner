@@ -1,5 +1,5 @@
 const app = getApp();
-const API_URL = "https://886edec9-5ffe-46e6-a680-af3625c500e3-00-8yrs0pqhalx2.kirk.replit.dev/questions"; // currently deployed on git
+const API_URL = "http://localhost:5001/questions"; // local server
 
 function fetchQuestions(type) {
   return new Promise((resolve, reject) => {
