@@ -166,6 +166,10 @@ Page({
     if (type === 'career' && income) {
       payload.income = parseInt(income);
     }
+    // 确保身高数据在身体测评中被保存
+    if (type === 'body') {
+      payload.height = parseInt(height) || 0;
+    }
 
     // Send answers to backend and navigate to result page when done
     wx.showLoading({ title: '分析中...' });

@@ -16,10 +16,7 @@ Page({
   loadRankings() {
     const rankings = wx.getStorageSync('userRankings') || [];
     
-    // 只显示最新的数据（最后一条记录）
-    const latestRanking = rankings[rankings.length - 1];
-    
-    if (!latestRanking) {
+    if (rankings.length === 0) {
       this.setData({
         heightRankings: [],
         incomeRankings: [],
@@ -28,18 +25,24 @@ Page({
       return;
     }
     
-    // 分离身高和收入数据，只显示最新用户的数据
-    const heightData = latestRanking.height > 0 ? [{
-      ...latestRanking,
-      score: this.calculateHeightScore(latestRanking.height),
-      percentile: this.getHeightPercentile(latestRanking.height)
-    }] : [];
+    // 分离身高和收入数据，显示所有有数据的用户
+    const heightData = rankings
+      .filter(item => item.height > 0)
+      .map(item => ({
+        ...item,
+        score: this.calculateHeightScore(item.height),
+        percentile: this.getHeightPercentile(item.height)
+      }))
+      .sort((a, b) => b.score - a.score); // 按分数排序
 
-    const incomeData = latestRanking.income > 0 ? [{
-      ...latestRanking,
-      score: this.calculateIncomeScore(latestRanking.income),
-      percentile: this.getIncomePercentile(latestRanking.income)
-    }] : [];
+    const incomeData = rankings
+      .filter(item => item.income > 0)
+      .map(item => ({
+        ...item,
+        score: this.calculateIncomeScore(item.income),
+        percentile: this.getIncomePercentile(item.income)
+      }))
+      .sort((a, b) => b.score - a.score); // 按分数排序
 
     this.setData({
       heightRankings: heightData,

@@ -6,7 +6,8 @@
  */
 
  // End point of the AI backend
-const AI_API_URL = 'http://localhost:5001/ai';
+const AI_BASE_URL = 'https://career-winner-backend-ysys1213mc.replit.app';
+const AI_API_URL = `${AI_BASE_URL}/ai`;
 
  /**
   * Send assessment answers to the AI backend
