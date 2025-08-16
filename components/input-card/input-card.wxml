@@ -1,0 +1,14 @@
+<view class="input-card">
+  <view class="progress">{{progress}}</view>
+  <text class="title-text">{{title}}</text>
+  <view class="input-area">
+    <input 
+      class="input-field"
+      type="{{type}}"
+      placeholder="{{placeholder}}"
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="onConfirm"
+    />
+  </view>
+</view> 

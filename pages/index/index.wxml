@@ -32,6 +32,11 @@
     </navigator>
   </view>
 
+  <!-- Ranking button -->
+  <navigator url="/pages/ranking/ranking" class="ranking-btn" hover-class="ranking-btn-hover">
+    <text class="ranking-title">排行榜</text>
+  </navigator>
+
   <!-- Comprehensive score area as a button, this directs to anoter page -->
   <navigator url="#" class="score-btn">
     <text class="score-title">综合分数</text>

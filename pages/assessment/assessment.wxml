@@ -2,7 +2,8 @@
 
   <navigation-bar title="{{title}}" back="true"></navigation-bar>
 
-  <view class="content" wx:if="{{!finished}}">
+  <!-- Questions -->
+  <view class="content" wx:if="{{currentStep === 'questions'}}">
     <question-card question="{{questions[currentIndex].question}}" progress="{{progress}}">
       <view class="option-list">
         <view class="option-item" wx:for="{{questions[currentIndex].options}}" wx:key="index" data-index="{{index}}" bindtap="selectOption">
@@ -10,6 +11,30 @@
         </view>
       </view>
     </question-card>
+  </view>
+
+  <!-- Height Input -->
+  <view class="content" wx:if="{{currentStep === 'height'}}">
+    <input-card 
+      title="请输入您的身高" 
+      placeholder="例如：175" 
+      type="number" 
+      progress="6/6"
+      bindinput="onHeightInput"
+      bindconfirm="onHeightConfirm"
+    />
+  </view>
+
+  <!-- Income Input -->
+  <view class="content" wx:if="{{currentStep === 'income'}}">
+    <input-card 
+      title="请输入您的月收入" 
+      placeholder="例如：5000" 
+      type="number" 
+      progress="6/6"
+      bindinput="onIncomeInput"
+      bindconfirm="onIncomeConfirm"
+    />
   </view>
 
   <view class="content" wx:if="{{finished}}">
